@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+/* Scroll Animation */
+.section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-in-out;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Global reset for margins and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Full height sections */
+html, body {
+  height: 100%;
+}
+
+/* Gradient background for all pages */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #282c34;
+  color: white;
+  height: 100%;
+  overflow-x: hidden;
+  padding: 0;
+}
+
+/* Scroll animation */
+.section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-in-out;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive design for home page */
+@media screen and (max-width: 768px) {
+  .home-section {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Adding smooth hover effects for images and cards */
+.home-photo img {
+  width: 300px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.home-photo img:hover {
+  transform: scale(1.1);
+}

@@ -88,7 +88,7 @@ const Footer = () => {
             </a>
 
             <a
-              href="@karthik_vk18"
+              href="https://t.me/karthik_vk18"
               target="_blank"
               rel="noopener noreferrer"
               id="telegram"

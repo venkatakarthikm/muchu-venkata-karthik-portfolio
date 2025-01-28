@@ -13,6 +13,11 @@ const Certifications = () => {
       logo: "rdhat.png",
       link: "https://www.credly.com/badges/2ccddcb8-16f4-4b4e-bd94-e952453dbf72/public_url", // Example link
     },
+    {
+      name: "Salesforce Certified AI Associate",
+      logo: "salesforce.png",
+      link: "", // Example link
+    },
   ];
 
   return (

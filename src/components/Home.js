@@ -1,31 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 
 const Home = () => {
   const handleResumeClick = () => {
-    window.open("/resume.pdf", "_blank"); // Opens the PDF in a new tab
+    window.open("/resume.pdf", "_blank");
   };
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setIsVisible(true), 500);
+  }, []);
+
   return (
-    <section id="home" className="home-section">
+    <section id="home" className={`home-section ${isVisible ? "show" : ""}`}>
       <div className="home-content">
+        <div className="home-photo">
+          <img src="1000004233.jpg" alt="Cherry Gouda" />
+        </div>
         <div className="home-text">
-          <h1 className="animate__animated animate__fadeInDown">
-            Hello, I'm Muchu Venkata Karthik
-          </h1>
-          <p className="animate__animated animate__fadeInUp">
-            I am a student and a passionate Full Stack Developer, specializing in
-            React.
+          <h1>Hello, I'm Manoj</h1>
+          <p>
+            I am a student and a passionate Full Stack Developer, specializing in React.
           </p>
-          <br/><br/><br/>
-          <button className="home-button animate__animated animate__fadeInUp"
-          onClick={handleResumeClick}>
-          
+          <button className="home-button" onClick={handleResumeClick}>
             <span>View Resume</span>
           </button>
-        </div>
-        <div className="home-photo animate__animated animate__zoomIn">
-          <img src="1000004233.jpg" alt="Cherry Gouda" />
         </div>
       </div>
     </section>

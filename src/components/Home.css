@@ -1,12 +1,19 @@
 .home-section {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   height: 100vh;
   padding: 0 50px;
   color: #fff;
-  position: relative;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.home-section.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .home-section::before {
@@ -38,31 +45,30 @@
 
 .home-content {
   display: flex;
+  align-items: center;
+  gap: 80px; /* Added spacing */
   width: 100%;
-  position: relative;
-  z-index: 1;
 }
 
 .home-text {
   max-width: 600px;
+  text-align: left;
 }
 
 .home-text h1 {
   font-size: 3.5rem;
   font-weight: bold;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .home-text p {
   font-size: 1.8rem;
-  font-weight: 300;
   line-height: 1.5;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
 }
 
 .home-photo img {
-  width: 300px;
+  width: 320px;
   height: auto;
   border-radius: 50%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -83,11 +89,19 @@
   }
 }
 
+
 @media (max-width: 768px) {
+
+
+  .home-photo {
+    order: -1;
+    margin-bottom: 20px;
+  }
+
+
+
   .home-section {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     padding: 20px;
   }
@@ -95,29 +109,23 @@
   .home-content {
     flex-direction: column;
     align-items: center;
+    gap: 40px; /* Maintain spacing */
   }
 
   .home-text {
-    margin-bottom: 15px;
     max-width: 100%;
   }
 
   .home-text h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 2.8rem;
   }
 
   .home-text p {
-    font-size: 1.2rem;
-    margin: 5px 0;
-  }
-
-  .home-photo {
-    margin-bottom: 20px;
+    font-size: 1.4rem;
   }
 
   .home-photo img {
-    width: 200px;
+    width: 250px;
   }
 }
 
@@ -127,15 +135,15 @@
   }
 
   .home-text h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .home-text p {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   .home-photo img {
-    width: 150px;
+    width: 200px;
   }
 
   button {
@@ -172,13 +180,12 @@ button {
 
 button:hover {
   color: var(--col4);
-  box-shadow: inset -2px 1px 1px var(--col2),
+  /* box-shadow: inset -2px 1px 1px var(--col2),
     inset 2px 1px 1px var(--col2),
     inset 0px -2px 20px var(--col4),
     0px 20px 30px var(--col3),
     0px -20px 30px var(--col2),
-    1px 2px 20px var(--col4);
-  text-shadow: 1px 1px var(--col2);
+    1px 2px 20px var(--col4); */
 }
 
 button:active {

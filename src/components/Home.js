@@ -16,10 +16,10 @@ const Home = () => {
     <section id="home" className={`home-section ${isVisible ? "show" : ""}`}>
       <div className="home-content">
         <div className="home-photo">
-          <img src="1000004233.jpg" alt="Cherry Gouda" />
+          <img src="1000004233.jpg" alt="Muchu Venkata Karthik" />
         </div>
         <div className="home-text">
-          <h1>Hello, I'm Manoj</h1>
+          <h1>Hello, I'm Muchu Venkata Karthik</h1>
           <p>
             I am a student and a passionate Full Stack Developer, specializing in React.
           </p>

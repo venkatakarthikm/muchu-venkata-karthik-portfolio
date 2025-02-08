@@ -24,7 +24,7 @@ const certificates = [
     issuer: "Salesforce",
     date: "December 2024",
     logo: "salesforce.png",
-    verifyUrl: ""
+    verifyUrl: "https://trailhead.salesforce.com/en/credentials/certification-detail-print/?searchString=GecERbEq0QRu2bG1yV1ihQTRHp/oq8BaTsbTSz0cMjrFHAfzhwLahw2/yO03Bef7"
   }
 ];
 

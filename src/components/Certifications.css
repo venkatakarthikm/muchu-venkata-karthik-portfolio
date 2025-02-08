@@ -1,289 +1,197 @@
-.certifications-section {
-  background-color: #282c34;
-  color: #fff;
+/* Certificate Card Styles */
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.certificate-card {
+  background: linear-gradient(135deg, #1a1f35 0%, #2a3149 100%);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  padding: 2rem;
+  min-height: 350px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  padding: 20px;
-  min-height: 100vh; /* Use min-height instead of fixed height */
+  justify-content: space-between;
 }
 
-.certifications-section h2 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  animation: fadeIn 1s ease-in-out;
-}
-
-.certification-cards {
-  display: flex;
-  flex-wrap: wrap; /* Ensure wrapping on smaller screens */
-  justify-content: center;
-  gap: 20px; /* Space between cards */
-}
-
-.e-card {
-  margin: 20px auto;
-  background: transparent;
-  box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
-  position: relative;
-  width: 240px;
-  height: 330px;
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-/* Responsive Styles */
-@media (max-width: 1024px) {
-  .certifications-section {
-    padding: 20px;
-    align-items: stretch; /* Stretch content for better layout */
-  }
-
-  .e-card {
-    width: 200px; /* Adjust width for smaller screens */
-    height: auto; /* Allow height to adjust naturally */
-  }
-
-  .certification-logo {
-    width: 70px;
-    height: 70px;
-  }
-}
-
-@media (max-width: 768px) {
-  .certifications-section {
-    padding: 15px;
-  }
-
-  .certifications-section h2 {
-    font-size: 2.5rem;
-  }
-
-  .e-card {
-    width: 180px; /* Smaller width for tablets */
-  }
-
-  .certification-logo {
-    width: 60px;
-    height: 60px;
-  }
-}
-
-@media (max-width: 480px) {
-  .certifications-section {
-    padding: 10px;
-  }
-
-  .certifications-section h2 {
-    font-size: 2rem;
-  }
-
-  .e-card {
-    width: 160px; /* Adjust for small screens */
-    height: auto; /* Auto height for flexibility */
-  }
-
-  .certification-logo {
-    width: 50px;
-    height: 50px;
-  }
-}
-
-
-.certification-card {
-  background-color: #fff;
-  color: #333;
-  padding: 20px;
-  border-radius: 10px;
-  width: 200px;
-  text-align: center;
-  animation: slideUp 1s ease-in-out;
-  transition: transform 0.3s;
-}
-
-.certification-card:hover {
-  transform: scale(1.1);
-}
-
-.card {
-  background: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Example fade-in animation for cards */
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s ease-in-out;
-}
-
-.card-container.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-/* Shared styles for Education, Projects, Certifications */
-.section {
-  padding: 100px 50px;
-  text-align: center;
-  background: linear-gradient(180deg, #4caf50 10%, #66bb6a 90%);
-  color: #fff;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s ease-in-out;
-}
-
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Card styles */
-
-/* Fade in animation for cards */
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.card-container.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-/* From Uiverse.io by MikeAndrewDesigner */ 
-.e-card {
-  margin: 100px auto;
-  background: transparent;
-  box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
-  position: relative;
-  width: 240px;
-  height: 330px;
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-.wave {
+.certificate-card::before,
+.certificate-card::after {
+  content: '';
   position: absolute;
-  width: 540px;
-  height: 700px;
-  opacity: 0.6;
-  left: 0;
+  width: 100%;
+  height: 100%;
   top: 0;
-  margin-left: -50%;
-  margin-top: -70%;
-  background: linear-gradient(744deg,#af40ff,#5b42f3 60%,#00ddeb);
-}
-
-.icon {
-  width: 3em;
-  margin-top: -1em;
-  padding-bottom: 1em;
-}
-
-.infotop {
-  text-align: center;
-  font-size: 20px;
-  position: absolute;
-  top: 8em;
   left: 0;
-  right: 0;
-  color: rgb(255, 255, 255);
-  font-weight: 600;
+  pointer-events: none;
 }
 
-.name {
-  font-size: 14px;
-  font-weight: 100;
-  position: relative;
-  top: 1em;
-  text-transform: lowercase;
+.certificate-card::before {
+  background: radial-gradient(circle at 50% 50%, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    transparent 50%);
 }
 
-.wave:nth-child(2),
-.wave:nth-child(3) {
-  top: 210px;
+.certificate-card::after {
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 3%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 3%),
+    radial-gradient(circle at 40% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 3%),
+    radial-gradient(circle at 60% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 3%),
+    radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 3%);
+  animation: particleFloat 8s infinite linear;
 }
 
-.playing .wave {
-  border-radius: 40%;
-  animation: wave 3000ms infinite linear;
-}
-
-.wave {
-  border-radius: 40%;
-  animation: wave 55s infinite linear;
-}
-
-.playing .wave:nth-child(2) {
-  animation-duration: 4000ms;
-}
-
-.wave:nth-child(2) {
-  animation-duration: 50s;
-}
-
-.playing .wave:nth-child(3) {
-  animation-duration: 5000ms;
-}
-
-.wave:nth-child(3) {
-  animation-duration: 45s;
-}
-
-@keyframes wave {
+@keyframes particleFloat {
   0% {
-    transform: rotate(0deg);
+    transform: translateY(0) rotate(0deg);
   }
-
+  50% {
+    transform: translateY(-10px) rotate(180deg);
+  }
   100% {
-    transform: rotate(360deg);
+    transform: translateY(0) rotate(360deg);
   }
 }
 
-.logo-container {
+.certificate-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.badge-icon {
+  width: 100px;
+  height: 100px;
+  background: none;
+  border-radius: 50%;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.badge-icon::after {
+  content: '';
   position: absolute;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
+  inset: -3px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.5), rgba(37, 99, 235, 0.5));
+  z-index: -1;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+
+.certificate-card:hover .badge-icon {
+  transform: scale(1.1) rotate(360deg);
+}
+
+.cert-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.certificate-content {
+  text-align: center;
   z-index: 1;
 }
 
-.certification-logo {
-  width: 80px; /* Adjust size */
-  height: 80px; /* Adjust size */
-  border-radius: 80%;
-  object-fit: cover;
+.certificate-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
 }
 
-.button-container {
-  position: absolute;
-  bottom: 10px; /* Adjust this value to position from the bottom */
-  left: 0;
-  right: 0;
+.certificate-issuer {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  margin-bottom: 1rem;
+}
+
+.certificate-date {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+
+.verify-button {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
   display: flex;
-  justify-content: center;
-  z-index: 3;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Modify the button to increase width and adjust styles if necessary */
-/* From Uiverse.io by Nawsome */ 
+.verify-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.verify-button:hover::before {
+  left: 100%;
+}
+
+.verify-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.verify-button:active {
+  transform: translateY(0);
+}
+
+.verify-icon {
+  transition: transform 0.3s ease;
+}
+
+.verify-button:hover .verify-icon {
+  transform: rotate(360deg);
+}
 .continue-application {
   --color: #fff;
   --background: #404660;

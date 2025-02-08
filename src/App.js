@@ -29,25 +29,24 @@ function App() {
     };
 
     // Disable key combinations for inspecting
-    // const handleKeyDown = (e) => {
-    //   if (
-    //     (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 'i' || e.key === 'I')) ||
-    //     e.key === 'F12' ||
-    //     (e.ctrlKey && e.shiftKey && e.key === 'I')
-    //   ) {
-    //     e.preventDefault();
-    //   }
-    // };
+    const handleKeyDown = (e) => {
+      if (
+        (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 'i' || e.key === 'I')) || e.key === 'f12'
+        (e.ctrlKey && e.shiftKey && e.key === 'I')
+      ) {
+        e.preventDefault();
+      }
+    };
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('contextmenu', handleContextMenu);
-    // window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keydown', handleKeyDown);
     handleScroll(); // Initial check to apply visible class to sections already in view
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('contextmenu', handleContextMenu);
-      // window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
 

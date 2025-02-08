@@ -1,63 +1,90 @@
+/* Projects Section Base Styles */
 .projects-section {
-  min-height: 100vh; /* Minimum height for smaller screens */
-  background-color: #282c34;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px; /* Padding for top, bottom, and sides */
-  box-sizing: border-box;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  min-height: 100vh;
 }
-
-.project-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  width: 100%; /* Ensure cards fit within the section */
-}
-
 
 .projects-section h2 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: slideInFromRight 1s ease forwards;
 }
 
+/* Project Cards Grid */
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Project Card Styles */
 .project-card {
-  background: linear-gradient(145deg, #3c4048, #2b2f36); /* Subtle gradient for depth */
-  color: #e0e0e0; /* Light text for readability */
-  padding: 15px;
-  border-radius: 12px; /* Softer corners for a modern look */
-  text-align: center;
-  text-decoration: none;
-  width: 400px;
-  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1rem;
   cursor: pointer;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(255, 255, 255, 0.1); /* Light shadow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.5s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.project-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-card:nth-child(3n+1) {
+  transform: translateX(-50px);
+}
+
+.project-card:nth-child(3n+2) {
+  transform: translateY(50px);
+}
+
+.project-card:nth-child(3n+3) {
+  transform: translateX(50px);
+}
+
+.project-card.show:nth-child(3n+1),
+.project-card.show:nth-child(3n+2),
+.project-card.show:nth-child(3n+3) {
+  transform: translate(0);
 }
 
 .project-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5), 0 2px 5px rgba(255, 255, 255, 0.2); /* Enhanced shadow on hover */
+  transform: translateY(-10px) scale(1.02);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-.project-image {
+.project-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
 }
 
+.project-card h3 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
 
 .project-tags {
-  color: #555;
-  font-size: 1rem; /* Slightly larger font for tags */
+  color: #a0aec0;
+  font-size: 0.9rem;
 }
 
-
-/* Popup styling */
+/* Popup Styles */
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -69,68 +96,169 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease;
 }
 
 .popup-content {
-  background: linear-gradient(145deg, #3c4048, #2b2f36);
-  color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  width: 80%;
+  background: #1a1a2e;
+  padding: 2rem;
+  border-radius: 20px;
   max-width: 600px;
+  width: 90%;
   position: relative;
+  animation: scaleIn 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .popup-content img {
-  max-width: 100%;
-  margin: 20px 0;
-  border-radius: 5px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 1rem 0;
 }
 
-.popup-tags {
-  margin: 10px 0;
-}
-
-.popup-tags .tag {
-  display: inline-block;
-  background: #007bff;
+.popup-content h2 {
   color: #fff;
-  padding: 5px 10px;
-  margin: 5px;
-  border-radius: 5px;
+  margin-bottom: 1rem;
 }
 
-.popup-buttons {
-  margin-top: 15px;
-  display: flex;
-  justify-content: space-around;
+.popup-content p {
+  color: #a0aec0;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
 
-.live-btn,
-.git-btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #fff;
+  font-size: 1.5rem;
   cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.close:hover {
+  transform: rotate(90deg);
+}
+
+/* Tags in Popup */
+.popup-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  background: rgba(255, 255, 255, 0.1);
   color: #fff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* Buttons in Popup */
+.popup-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.popup-buttons button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .live-btn {
-  background-color: #28a745;
+  background: #4f46e5;
+  color: white;
 }
 
 .git-btn {
-  background-color: #007bff;
+  background: #1f2937;
+  color: white;
 }
 
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #333;
-  cursor: pointer;
+.popup-buttons button:hover {
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 2rem 1rem;
+  }
+  
+  .project-cards {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .popup-content {
+    width: 95%;
+    padding: 1.5rem;
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4f46e5;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4338ca;
 }

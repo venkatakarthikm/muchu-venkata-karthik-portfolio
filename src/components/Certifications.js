@@ -1,47 +1,60 @@
-import React from "react";
-import "./Certifications.css";
+import React from 'react';
+import './Certifications.css';
 
-const Certifications = () => {
-  const certifications = [
-    {
-      name: "AUTOMATION ANYWHERE CERTIFIED ESSENTIALS RPA PROFESSIONAL",
-      logo: "aacer1.png",
-      link: "https://certificates.automationanywhere.com/12ded5a8-2051-4f46-90b3-ce6b94cd64ce#acc.J3vEandY", // Example link
-    },
-    {
-      name: "Red Hat Certified Enterprise Application Developer",
-      logo: "rdhat.png",
-      link: "https://www.credly.com/badges/2ccddcb8-16f4-4b4e-bd94-e952453dbf72/public_url", // Example link
-    },
-    {
-      name: "Salesforce Certified AI Associate",
-      logo: "salesforce.png",
-      link: "", // Example link
-    },
-  ];
+const certificates = [
+  {
+    id: 1,
+    title: "AUTOMATION ANYWHERE CERTIFIED ESSENTIALS RPA PROFESSIONAL",
+    issuer: "AUTOMATION ANYWHERE",
+    date: "July 25, 2024",
+    logo: "aacer1.png",
+    verifyUrl: "https://certificates.automationanywhere.com/12ded5a8-2051-4f46-90b3-ce6b94cd64ce#acc.J3vEandY"
+  },
+  {
+    id: 2,
+    title: "Red Hat Certified Enterprise Application Developer",
+    issuer: "Red Hat",
+    date: "Dec 23, 2024",
+    logo: "rdhat.png",
+    verifyUrl: "https://www.credly.com/badges/2ccddcb8-16f4-4b4e-bd94-e952453dbf72/public_url"
+  },
+  {
+    id: 3,
+    title: "Salesforce Certified AI Associate",
+    issuer: "Salesforce",
+    date: "December 2024",
+    logo: "salesforce.png",
+    verifyUrl: ""
+  }
+];
+
+function Certifications() {
+  const handleVerify = (url) => {
+    if (url) {
+      window.open(url, '_blank');
+    } else {
+      alert('Verification URL not available for this certificate.');
+    }
+  };
 
   return (
     <section id="certifications" className="certifications-section bg-green">
-      <h2 className="animate__animated animate__rotateInUpLeft">
-        Certifications
-      </h2>
-      <div className="certification-cards">
-        {certifications.map((cert, index) => (
-          <div key={index} className="e-card playing">
-            <div className="logo-container">
-              <img
-                src={cert.logo}
-                alt="Certification Logo"
-                className="certification-logo"
-              />
-            </div>
-            <div className="image"></div>
-            <div className="wave"></div>
-            <div className="wave"></div>
-            <div className="wave"></div>
-            <div className="infotop">{cert.name}</div>
-            <div className="button-container">
-              <bt
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 py-12">
+      <div className="max-w-7xl mx-auto px-4">
+        <h1 className="text-4xl font-bold text-center text-white mb-12">
+          My Certificates
+        </h1>
+        <div className="certificates-grid">
+          {certificates.map((cert) => (
+            <div key={cert.id} className="certificate-card">
+              <div className="badge-icon">
+                <img src={cert.logo} alt={`${cert.title} logo`} className="cert-logo" />
+              </div>
+              <div className="certificate-content">
+                <h3 className="certificate-title">{cert.title}</h3>
+                <p className="certificate-issuer">Issued by {cert.issuer}</p>
+                <p className="certificate-date">{cert.date}</p>
+                <bt
                 className="continue-application"
                 onClick={() => window.open(cert.link, "_blank")} // Open link in a new tab
               >
@@ -58,12 +71,14 @@ const Certifications = () => {
                 </div>
                 Verify
               </bt>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+    </div>
     </section>
   );
-};
+}
 
 export default Certifications;

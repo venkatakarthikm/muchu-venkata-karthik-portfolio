@@ -31,7 +31,7 @@ function App() {
     // Disable key combinations for inspecting
     const handleKeyDown = (e) => {
       if (
-        (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 'i' || e.key === 'I')) || e.key === 'f12'
+        (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 'i' || e.key === 'I')) || e.key === 'F12' ||
         (e.ctrlKey && e.shiftKey && e.key === 'I')
       ) {
         e.preventDefault();

@@ -1,7 +1,7 @@
 /* Projects Section Base Styles */
 .projects-section {
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background: hsl(240, 28%, 14%);
   min-height: 100vh;
 }
 

@@ -39,7 +39,7 @@ function Certifications() {
 
   return (
     <section id="certifications" className="certifications-section bg-green">
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 py-12">
+    <div className="cert">
       <div className="max-w-7xl mx-auto px-4">
         <h1 className="text-4xl font-bold text-center text-white mb-12">
           My Certificates

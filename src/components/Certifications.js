@@ -22,7 +22,7 @@ const certificates = [
     id: 3,
     title: "Salesforce Certified AI Associate",
     issuer: "Salesforce",
-    date: "December 2024",
+    date: "Oct 20, 2024",
     logo: "salesforce.png",
     verifyUrl: "https://trailhead.salesforce.com/en/credentials/certification-detail-print/?searchString=GecERbEq0QRu2bG1yV1ihQTRHp/oq8BaTsbTSz0cMjrFHAfzhwLahw2/yO03Bef7"
   }
